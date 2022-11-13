@@ -8,6 +8,7 @@ const app = express();
 
 // Middlewares
 app.use(express.json());
+app.use(express.urlencoded({ extended: false })); // Receive also form data
 
 // Routes
 app.get('/', (req, res) => {
