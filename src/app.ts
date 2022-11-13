@@ -31,16 +31,16 @@ app.post('/login', async (req, res) => {
         const user: User | undefined = searchUser[0][0];
 
         if(!user){
-            const message: any = messages.notFound("User does not exist");
+            const message: any = messages.resultFound({}, "User does not exist");
             message.loginCode = -1;
-            res.status(404).json(message);            
+            res.status(200).json(message);            
             return res.end();
         }
 
         if(user.Password !== password){
-            const message: any = messages.notFound("Password incorrect");
+            const message: any = messages.resultFound({}, "Password incorrect");
             message.loginCode = 0;
-            res.status(404).json(message);
+            res.status(200).json(message);
             return res.end();
         }
 
