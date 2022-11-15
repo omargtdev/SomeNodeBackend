@@ -12,7 +12,7 @@ export const loginPostController = async (req: any, res: any) => {
 
     try {
         const conn = await getConnection();
-        const searchUser: any = await conn?.query(`SELECT * FROM \`User\` WHERE Username = ?`, [username]);       
+        const searchUser: any = await conn?.query('SELECT * FROM \`User\` WHERE Username = ?', [username]);       
 
         const user: User | undefined = searchUser[0][0];
 
